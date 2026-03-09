@@ -1,0 +1,50 @@
+{
+    "collections": {
+        "mempool_events": {
+            "description": "Raw pending transactions from Base mempool",
+            "fields": {
+                "hash": "string",
+                "from": "string",
+                "to": "string",
+                "value": "string",
+                "gasPrice": "string",
+                "timestamp": "firestore.Timestamp",
+                "blockNumber": "integer|null",
+                "status": "pending|mined|failed"
+            }
+        },
+        "block_analytics": {
+            "description": "Processed block data with MEV indicators",
+            "fields": {
+                "number": "integer",
+                "timestamp": "firestore.Timestamp",
+                "totalGasUsed": "integer",
+                "avgGasPrice": "string",
+                "mevTransactions": "integer",
+                "largeSwaps": "array"
+            }
+        },
+        "strategy_performance": {
+            "description": "Real-time performance metrics for each trading module",
+            "fields": {
+                "strategy_id": "string",
+                "timestamp": "firestore.Timestamp",
+                "pnl": "float",
+                "capital_employed": "float",
+                "sharpe_ratio": "float",
+                "max_drawdown": "float",
+                "trade_count": "integer"
+            }
+        },
+        "treasury_state": {
+            "description": "Capital allocation and risk management state",
+            "fields": {
+                "timestamp": "firestore.Timestamp",
+                "total_capital": "float",
+                "allocations": "map",
+                "risk_score": "float",
+                "circuit_breaker": "boolean"
+            }
+        }
+    }
+}
